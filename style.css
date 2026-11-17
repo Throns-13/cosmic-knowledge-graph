@@ -679,3 +679,52 @@ input:focus-visible {
   }
 }
 
+
+/* COSMIC KNOWLEDGE GRAPH: styles for the current index.html markup */
+.app-container{display:grid;grid-template-columns:260px minmax(0,1fr);min-height:100vh}
+.brand-text h2{margin:0;font-size:15px;font-weight:800;letter-spacing:.5px}
+.brand-text span{display:block;margin-top:4px;color:var(--muted);font-size:10px;letter-spacing:1.5px}
+.search-container{display:flex;gap:7px}
+.search-container input{min-width:0;width:100%;padding:11px 12px;border:1px solid var(--border);border-radius:10px;background:#0b1323;color:var(--text)}
+.search-container input::placeholder{color:#71819c}
+.search-container button,.graph-actions button{display:grid;place-items:center;min-width:40px;border:1px solid var(--border);border-radius:10px;background:#15233a;color:#dceaff;cursor:pointer}
+.search-container button:hover,.graph-actions button:hover{border-color:rgba(114,183,255,.55);background:#203653}
+.sidebar-section h3{margin:0 0 3px 5px;color:#7285a4;font-size:10px;font-weight:800;letter-spacing:1.5px}
+.nav-item{display:flex;align-items:center;gap:10px;width:100%;min-height:40px;padding:9px 12px;border:1px solid transparent;border-radius:10px;background:transparent;color:#b5c3d9;text-align:left;cursor:pointer;transition:background .2s,border-color .2s,color .2s}
+.nav-item span{width:18px;text-align:center}
+.nav-item:hover{background:rgba(126,163,214,.09);color:white}
+.nav-item.active{border-color:rgba(114,183,255,.2);background:rgba(80,145,220,.15);color:#d9edff}
+.sidebar-footer{margin-top:auto;padding-top:18px;border-top:1px solid var(--border);color:var(--muted);font-size:10px;line-height:1.7}
+.sidebar-footer small{display:block;margin:5px 0 0 15px;color:#71819c}
+.page-heading h1{margin:0;font-size:clamp(23px,3vw,32px);font-weight:800;letter-spacing:-.8px}
+.system-status{display:inline-flex;align-items:center;padding:8px 12px;border:1px solid rgba(96,213,197,.2);border-radius:999px;background:rgba(96,213,197,.08);color:#8de8d9;font-size:10px;white-space:nowrap}
+.statistics{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px;margin-bottom:22px}
+.stat-label{display:block;color:var(--muted);font-size:10px;letter-spacing:.8px}
+.stat-card small{color:var(--muted);font-size:11px}
+.workspace-header{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:15px 18px;border-bottom:1px solid var(--border)}
+.workspace-header h2{margin:0;font-size:15px}
+.workspace-header p{margin:5px 0 0;color:var(--muted);font-size:11px}
+.graph-actions{display:flex;gap:8px}
+.graph-actions button{width:36px;height:36px;font-size:19px}
+#knowledgeGraph{position:relative;width:100%;height:min(68vh,680px);min-height:480px;background:radial-gradient(circle at 50% 50%,rgba(45,78,126,.12),transparent 55%),linear-gradient(rgba(90,120,170,.035) 1px,transparent 1px),linear-gradient(90deg,rgba(90,120,170,.035) 1px,transparent 1px),#0a1221;background-size:auto,34px 34px,34px 34px,auto}
+#knowledgeGraph canvas{display:block;outline:none}
+.loading-message{position:absolute;inset:0;display:grid;place-content:center;padding:20px;background:rgba(8,14,26,.94);color:var(--muted);text-align:center;z-index:2}
+.loading-message.hidden{display:none}
+.graph-legend{display:flex;flex-wrap:wrap;gap:12px 20px;padding:14px 18px;border-top:1px solid var(--border);color:var(--muted);font-size:11px}
+.legend-dot{width:9px;height:9px;flex:0 0 auto;border-radius:50%;box-shadow:0 0 10px currentColor}
+.solar-color{background:var(--solar);color:var(--solar)}.blackhole-color{background:var(--blackhole);color:var(--blackhole)}.physics-color{background:var(--physics);color:var(--physics)}.evidence-color{background:var(--evidence);color:var(--evidence)}.advanced-color{background:var(--advanced);color:var(--advanced)}
+.details-header h2{margin:5px 0 0;font-size:20px}
+.details-icon{display:grid;flex:0 0 auto;place-items:center;width:48px;height:48px;border:1px solid var(--border);border-radius:14px;background:rgba(114,183,255,.1);font-size:23px}
+.details-body>p{margin:17px 0;color:#c3d0e3;line-height:1.9;white-space:pre-line}
+.details-extra{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}
+.detail-block h3{margin:0 0 9px;color:#dceaff;font-size:11px;letter-spacing:.7px}
+.detail-block p,.detail-block li{color:#aebed4;line-height:1.8}
+.detail-block ul{margin:0;padding-left:20px}
+#relatedConcepts{display:flex;flex-wrap:wrap;gap:8px}
+.related-chip{padding:7px 10px;border:1px solid rgba(114,183,255,.2);border-radius:999px;background:rgba(80,145,220,.1);color:#cde5ff;cursor:pointer}
+.related-chip:hover{background:rgba(80,145,220,.22)}
+.empty-related{color:var(--muted);font-size:12px}
+.main-footer{display:flex;justify-content:space-between;gap:12px;margin-top:22px;padding:15px 2px;color:#71819c;font-size:9px;letter-spacing:1px}
+@media(max-width:900px){.app-container{grid-template-columns:220px minmax(0,1fr)}.sidebar{padding:20px 13px}.details-extra{grid-template-columns:1fr}}
+@media(max-width:680px){.app-container{display:block}.sidebar{position:relative;height:auto;padding:17px;border-right:0;border-bottom:1px solid var(--border)}.sidebar-footer{display:none}.main-content{padding:20px 13px}.system-status{font-size:0;padding:9px}.system-status .status-indicator{margin:0}.statistics{gap:8px}.stat-card{padding:13px 11px}.stat-card strong{font-size:21px}.workspace-header{align-items:flex-start}#knowledgeGraph{min-height:440px;height:65vh}.details-panel{padding:17px}.main-footer{flex-direction:column}}
+@media(max-width:390px){.page-heading h1{font-size:21px}.stat-label{font-size:9px}}
