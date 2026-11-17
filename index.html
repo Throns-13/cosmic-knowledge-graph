@@ -18,7 +18,8 @@
 
     <!-- Vis Network library -->
     <script
-        src="https://unpkg.com/vis-network/standalone/umd/vis-network.min.js">
+        src="https://unpkg.com/vis-network/standalone/umd/vis-network.min.js"
+        onerror="this.onerror=null;this.src='https://cdn.jsdelivr.net/npm/vis-network/standalone/umd/vis-network.min.js';">
     </script>
 
 </head>
@@ -55,7 +56,7 @@
                     autocomplete="off"
                 >
 
-                <button id="searchButton" type="button">
+                <button id="searchButton" type="button" aria-label="Search knowledge" title="Search knowledge">
                     ⌕
                 </button>
 
