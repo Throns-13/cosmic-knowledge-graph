@@ -144,7 +144,8 @@ document.addEventListener("DOMContentLoaded", () => {
   // 5. PREPARE EDGE DATA
   // ==========================================
 
-  const graphEdges = edges.map((edge) => ({
+const graphEdges = edges.map((edge, index) => ({
+  id: index + 1,
     ...edge,
     arrows: {
       to: {
