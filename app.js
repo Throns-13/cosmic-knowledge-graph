@@ -17,7 +17,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
   if (typeof nodes === "undefined" || typeof edges === "undefined") {
     console.error("Knowledge graph data is missing.");
-    showError("ไม่พบฐานข้อมูล กรุณาตรวจสอบไฟล์ js/data.js");
+    showError("ไม่พบฐานข้อมูล กรุณาตรวจสอบไฟล์ data.js");
     return;
   }
 
@@ -477,9 +477,9 @@ const graphEdges = edges.map((edge, index) => ({
       const searchMatches =
         searchTerm.length === 0 ||
         node.label.toLowerCase().includes(searchTerm) ||
-        node.description.toLowerCase().includes(searchTerm) ||
-        node.principle.toLowerCase().includes(searchTerm) ||
-        node.tags.some((tag) =>
+        String(node.description || "").toLowerCase().includes(searchTerm) ||
+        String(node.principle || "").toLowerCase().includes(searchTerm) ||
+        (Array.isArray(node.tags) ? node.tags : []).some((tag) =>
           tag.toLowerCase().includes(searchTerm)
         );
 
@@ -578,23 +578,22 @@ const graphEdges = edges.map((edge, index) => ({
   // 15. SEARCH
   // ==========================================
 
+  function runSearch() {
+    searchTerm = searchInput ? searchInput.value.trim().toLowerCase() : "";
+    const visibleCount = applyFilters();
+
+    if (visibleCount > 0) {
+      network.fit({
+        animation: {
+          duration: 400,
+          easingFunction: "easeInOutQuad"
+        }
+      });
+    }
+  }
+
   if (searchInput) {
-    searchInput.addEventListener("input", (event) => {
-      searchTerm = event.target.value
-        .trim()
-        .toLowerCase();
-
-      const visibleCount = applyFilters();
-
-      if (visibleCount > 0) {
-        network.fit({
-          animation: {
-            duration: 400,
-            easingFunction: "easeInOutQuad"
-          }
-        });
-      }
-    });
+    searchInput.addEventListener("input", runSearch);
 
     searchInput.addEventListener("keydown", (event) => {
       if (event.key === "Enter") {
@@ -619,6 +618,11 @@ const graphEdges = edges.map((edge, index) => ({
         applyFilters();
       }
     });
+  }
+
+  const searchButton = document.getElementById("searchButton");
+  if (searchButton) {
+    searchButton.addEventListener("click", runSearch);
   }
 
   // ==========================================
