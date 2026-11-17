@@ -34,18 +34,14 @@ The project uses an interactive network graph to connect scientific concepts and
 
 ## Project Structure
 
+All application files are stored at the repository root because GitHub Pages publishes from the main branch root folder.
+
 ```text
 cosmic-knowledge-graph/
-│
 ├── index.html
-│
-├── css/
-│   └── style.css
-│
-├── js/
-│   ├── data.js
-│   └── app.js
-│
+├── style.css
+├── data.js
+├── app.js
 └── README.md
 ```
 
